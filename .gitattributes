@@ -1,0 +1,39 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Git
+.git* text eol=lf
+
+# TypeScript/JavaScript
+*.ts    text eol=lf
+*.tsx   text eol=lf
+*.js    text eol=lf
+*.jsx   text eol=lf
+
+# JSON/Config
+*.json  text eol=lf
+.*rc    text eol=lf
+
+# Documentation
+*.md text eol=lf linguist-documentation=true
+
+# Text
+*.txt text eol=lf
+
+# Shell scripts
+*.sh        text eol=lf
+.husky/*    text eol=lf
+
+# Windows scripts
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.ps1   text eol=crlf
+
+# Build output
+dist/* linguist-generated=true
+
+# Dependencies
+node_modules/* linguist-generated=true
+
+# Lock files
+package-lock.json linguist-generated=true merge=ours

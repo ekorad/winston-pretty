@@ -10,7 +10,7 @@
     "colorize",
     "console"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "author": "Vlad-Gabriel Zahiu",
   "type": "module",
   "main": "dist/index.js",
@@ -29,6 +29,14 @@
   "engines": {
     "node": ">=12.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ekorad/winston-pretty"
+  },
+  "bugs": {
+    "url": "https://github.com/ekorad/winston-pretty/issues"
+  },
+  "homepage": "https://github.com/ekorad/winston-pretty#readme",
   "devDependencies": {
     "rimraf": "^6.1.0",
     "tsx": "^4.20.6",

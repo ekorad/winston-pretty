@@ -23,8 +23,23 @@
     "build:watch": "tsc -p tsconfig.build.json --watch",
     "clean": "rimraf dist",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run typecheck && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run typecheck && npm run lint && npm run format:check",
+    "prepublishOnly": "npm run check && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,cts,mts,js,cjs,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   },
   "engines": {
     "node": ">=12.0.0"
@@ -38,8 +53,16 @@
   },
   "homepage": "https://github.com/ekorad/winston-pretty#readme",
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "jiti": "^2.6.1",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
     "rimraf": "^6.1.0",
     "tsx": "^4.20.6",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3"
   }
 }

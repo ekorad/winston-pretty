@@ -1,4 +1,4 @@
-# IntelliJ
+# IDE
 .idea/
 **/*.iml
 
@@ -10,3 +10,6 @@ dist/
 
 # Husky
 .husky/_
+
+# Coverage
+coverage/

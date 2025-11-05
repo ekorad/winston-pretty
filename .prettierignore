@@ -1,8 +1,25 @@
-# Build output
-dist/
+# IDE
+.idea/
+*.iml
 
 # Dependencies
 node_modules/
 
+# Build output
+dist/
+
 # Lock files
 package-lock.json
+
+# Husky
+.husky/_
+
+# Coverage
+coverage/
+
+# License
+LICENSE
+
+# Git
+.git/
+.gitattributes

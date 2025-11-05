@@ -11,15 +11,26 @@
     "console"
   ],
   "license": "MIT",
-  "author": "Vlad-Gabriel Zahiu",
+  "author": {
+    "name": "Vlad-Gabriel Zahiu",
+    "url": "https://github.com/ekorad"
+  },
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
   "scripts": {
-    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "prebuild": "npm run clean && npm run test:run",
+    "build": "tsc -p tsconfig.build.json",
     "build:watch": "tsc -p tsconfig.build.json --watch",
     "clean": "rimraf dist",
     "typecheck": "tsc --noEmit",
@@ -29,13 +40,17 @@
     "format:check": "prettier --check .",
     "check": "npm run typecheck && npm run lint && npm run format:check",
     "prepublishOnly": "npm run check && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{ts,cts,mts,js,cjs,mjs}": [
+    "*.ts": [
       "eslint --fix",
-      "prettier --write"
+      "prettier --write",
+      "vitest related --run"
     ],
     "*.{json,md}": [
       "prettier --write"
@@ -54,6 +69,8 @@
   "homepage": "https://github.com/ekorad/winston-pretty#readme",
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@vitest/coverage-istanbul": "^3.2.4",
+    "@vitest/ui": "^3.2.4",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
@@ -63,6 +80,7 @@
     "rimraf": "^6.1.0",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.3"
+    "typescript-eslint": "^8.46.3",
+    "vitest": "^3.2.4"
   }
 }
